@@ -4,82 +4,317 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Find local jobs and connect with employers on SkillBridge.">
+
+  <meta name="description"
+        content="SkillBridge connects job seekers with local employers, career opportunities and skill development resources.">
+
   <title>SkillBridge | Find Your Next Opportunity</title>
-  <link rel="stylesheet" href="/css/style.css">
+
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+
+  <!-- NAVIGATION -->
   <header class="navbar">
-    <a class="brand" href="/">SkillBridge<span>.</span></a>
-    <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
-    <nav id="navLinks">
+    <a class="brand" href="#home" aria-label="SkillBridge home">
+      <img src="assets/logo.svg" alt="" width="38" height="38">
+      <span>SkillBridge</span>
+    </a>
+
+    <button id="menuBtn" class="menu-btn"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="navLinks" class="nav-links">
       <a href="#home">Home</a>
       <a href="#jobs">Find Jobs</a>
       <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <a class="nav-cta" href="#jobs">Explore Jobs</a>
+      <a href="#jobs" class="nav-cta">Explore Jobs ↗</a>
     </nav>
   </header>
 
   <main>
+
+    <!-- HERO SECTION -->
     <section id="home" class="hero">
       <div class="hero-copy">
-        <span class="eyebrow">YOUR NEXT OPPORTUNITY STARTS HERE</span>
-        <h1>Local talent.<br><span>Real opportunities.</span></h1>
-        <p>Connect with local businesses, discover opportunities and build your career with SkillBridge.</p>
-        <a class="primary-btn" href="#jobs">Explore Jobs →</a>
+        <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+
+        <h1>Find work that moves your <span>future forward.</span></h1>
+
+        <p>
+          Discover meaningful opportunities, connect with local employers
+          and build the skills you need to grow your career.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#jobs" class="primary-btn">Explore Jobs ↗</a>
+          <a href="#about" class="secondary-btn">Discover SkillBridge</a>
+        </div>
+
         <div class="hero-stats">
-          <div><strong>Local</strong><small>Job opportunities</small></div>
-          <div><strong>Simple</strong><small>Job discovery</small></div>
-          <div><strong>Skills</strong><small>First approach</small></div>
+          <div>
+            <strong>Local</strong>
+            <span>Job discovery</span>
+          </div>
+          <div>
+            <strong>Simple</strong>
+            <span>Job search</span>
+          </div>
+          <div>
+            <strong>Growth</strong>
+            <span>Career skills</span>
+          </div>
         </div>
       </div>
+
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=80" alt="Professionals working together">
-        <div class="image-note">Find work that fits your skills ✨</div>
+        <img src="assets/hero.svg"
+             alt="Professionals collaborating on career opportunities">
+        <div class="image-caption">
+          <span class="status-dot"></span>
+          Your next opportunity awaits
+        </div>
       </div>
     </section>
 
-    <section class="search-section">
-      <form id="searchForm" class="search-box">
-        <label>What are you looking for?
-          <input id="keyword" placeholder="Job title or skill">
-        </label>
-        <label>Location
-          <input id="location" placeholder="e.g. Nashik">
-        </label>
-        <button class="primary-btn" type="submit">Search Jobs</button>
-      </form>
+    <!-- TRUST / INTRODUCTION -->
+    <section class="intro-strip">
+      <p>Connecting <strong>people, skills and opportunities.</strong></p>
+      <a href="#about">Discover our mission →</a>
     </section>
 
-    <section id="jobs" class="section">
+    <!-- JOB SEARCH -->
+    <section id="jobs" class="jobs-section section-padding">
       <div class="section-heading">
-        <div><span class="eyebrow">OPPORTUNITIES FOR YOU</span><h2>Featured jobs</h2></div>
-        <span id="jobCount" class="muted">Loading jobs...</span>
+        <span class="eyebrow">YOUR NEXT OPPORTUNITY</span>
+        <h2>Find a job that fits you.</h2>
+        <p>Search by role, skill or location to discover relevant opportunities.</p>
       </div>
-      <div id="jobList" class="job-grid"></div>
+
+      <form id="searchForm" class="search-box">
+        <label>
+          <span>Job title or skill</span>
+          <input
+            type="search"
+            id="keyword"
+            name="keyword"
+            placeholder="e.g. Software Engineer"
+          >
+        </label>
+
+        <label>
+          <span>Location</span>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="e.g. Nashik"
+          >
+        </label>
+
+        <button type="submit" class="primary-btn">Search Jobs ↗</button>
+      </form>
+
+      <div class="jobs-toolbar">
+        <div>
+          <h3>Featured opportunities</h3>
+          <p id="jobCount" aria-live="polite">Explore available jobs</p>
+        </div>
+
+        <label class="sort-control">
+          <span>Sort jobs</span>
+          <select id="jobSort">
+            <option value="default">Recommended</option>
+            <option value="title">Job title A–Z</option>
+            <option value="location">Location A–Z</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="jobList" class="job-grid">
+        <!-- Job cards can be loaded by js/app.js -->
+        <article class="job-card">
+          <img src="assets/job-placeholder.svg"
+               alt="" class="job-image">
+          <span class="job-tag">Technology</span>
+          <h3>Software Developer</h3>
+          <p>Explore software development opportunities.</p>
+          <a href="#contact" class="text-link">View opportunity →</a>
+        </article>
+
+        <article class="job-card">
+          <img src="assets/company-building.svg"
+               alt="" class="job-image">
+          <span class="job-tag">Business</span>
+          <h3>Business Associate</h3>
+          <p>Discover opportunities to support business growth.</p>
+          <a href="#contact" class="text-link">View opportunity →</a>
+        </article>
+
+        <article class="job-card">
+          <img src="assets/skill-development.svg"
+               alt="" class="job-image">
+          <span class="job-tag">Entry Level</span>
+          <h3>Graduate Trainee</h3>
+          <p>Start your professional journey and develop new skills.</p>
+          <a href="#contact" class="text-link">View opportunity →</a>
+        </article>
+      </div>
+
+      <p class="section-note">
+        Sample job cards are shown above. Real job listings require job data
+        and a compatible JavaScript implementation.
+      </p>
     </section>
 
-    <section id="about" class="about-section">
-      <span class="eyebrow">WHY SKILLBRIDGE?</span>
-      <h2>Your skills can open new doors.</h2>
-      <p>We help fresh graduates discover local work opportunities and help businesses connect with emerging talent.</p>
-      <div class="benefit-grid">
-        <article><span>01</span><h3>Discover</h3><p>Explore jobs that match your interests and skills.</p></article>
-        <article><span>02</span><h3>Connect</h3><p>Find opportunities with local employers.</p></article>
-        <article><span>03</span><h3>Grow</h3><p>Take the next step in your professional journey.</p></article>
+    <!-- ABOUT -->
+    <section id="about" class="about-section section-padding">
+      <div class="about-image">
+        <img src="assets/about-team.svg"
+             alt="Team working together to connect people with opportunities"
+             loading="lazy">
+      </div>
+
+      <div class="about-copy">
+        <span class="eyebrow">WHY SKILLBRIDGE?</span>
+        <h2>Opportunity should be within everyone's reach.</h2>
+        <p>
+          SkillBridge aims to help job seekers discover local opportunities,
+          explore career pathways and connect their skills with employers.
+        </p>
+
+        <div class="benefit-list">
+          <article>
+            <span class="benefit-number">01</span>
+            <div>
+              <h3>Discover</h3>
+              <p>Explore opportunities that match your interests.</p>
+            </div>
+          </article>
+
+          <article>
+            <span class="benefit-number">02</span>
+            <div>
+              <h3>Connect</h3>
+              <p>Find potential employers and career pathways.</p>
+            </div>
+          </article>
+
+          <article>
+            <span class="benefit-number">03</span>
+            <div>
+              <h3>Grow</h3>
+              <p>Build confidence and develop useful professional skills.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="contact-section">
-      <h2>Ready to take the next step?</h2>
-      <p>Explore available opportunities and start planning your career.</p>
-      <a class="primary-btn" href="#jobs">Find a Job →</a>
+    <!-- SKILLS -->
+    <section id="skills" class="skills-section section-padding">
+      <div class="section-heading">
+        <span class="eyebrow">INVEST IN YOURSELF</span>
+        <h2>Build skills. Build confidence.</h2>
+        <p>Take practical steps toward your next career milestone.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <img src="assets/skill-development.svg"
+               alt="" loading="lazy">
+          <h3>Skill Development</h3>
+          <p>Identify the skills you need for your preferred career.</p>
+          <a href="#contact" class="text-link">Explore skills →</a>
+        </article>
+
+        <article class="feature-card">
+          <img src="assets/career-growth.svg"
+               alt="" loading="lazy">
+          <h3>Career Growth</h3>
+          <p>Plan your next step and keep moving toward your goals.</p>
+          <a href="#contact" class="text-link">Plan your growth →</a>
+        </article>
+
+        <article class="feature-card">
+          <img src="assets/job-success.svg"
+               alt="" loading="lazy">
+          <h3>Career Success</h3>
+          <p>Prepare for applications, interviews and new opportunities.</p>
+          <a href="#contact" class="text-link">Get started →</a>
+        </article>
+      </div>
     </section>
+
+    <!-- EMPLOYERS -->
+    <section class="employer-section section-padding">
+      <div class="employer-copy">
+        <span class="eyebrow">FOR EMPLOYERS</span>
+        <h2>Find talent. Build your team.</h2>
+        <p>
+          Connect with people who are ready to contribute their skills
+          and grow with your organisation.
+        </p>
+        <a href="#contact" class="primary-btn">Connect with us ↗</a>
+      </div>
+
+      <img src="assets/company-building.svg"
+           alt="Business and company illustration"
+           loading="lazy">
+    </section>
+
+    <!-- CAREER CTA -->
+    <section id="contact" class="contact-section section-padding">
+      <img src="assets/job-search.svg"
+           alt="" loading="lazy">
+
+      <div>
+        <span class="eyebrow">YOUR FUTURE STARTS NOW</span>
+        <h2>Ready for your next step?</h2>
+        <p>Explore opportunities and start planning your career today.</p>
+        <a href="#jobs" class="primary-btn">Find Your Next Job ↗</a>
+      </div>
+
+      <img src="assets/job-success.svg"
+           alt="" loading="lazy">
+    </section>
+
   </main>
 
-  <footer><a class="brand" href="/">SkillBridge<span>.</span></a><p>Connecting skills with opportunities.</p><small>© 2026 SkillBridge Job Portal</small></footer>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home">
+      <img src="assets/logo.svg" alt="" width="34" height="34">
+      <span>SkillBridge</span>
+    </a>
 
-  <script src="/js/app.js"></script>
+    <p>Connecting skills with opportunities.</p>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#home">Home</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <p class="copyright">
+      © 2026 SkillBridge Job Portal. All rights reserved.
+    </p>
+  </footer>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
