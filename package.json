@@ -1,0 +1,14 @@
+
+{
+  "name": "skillbridge-job-portal",
+  "version": "1.0.0",
+  "description": "Responsive skill-based local job portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  }
+}
