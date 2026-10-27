@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in or register with SkillBridge to explore career opportunities.">
+  <title>Login & Register | SkillBridge</title>
+
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="" width="38" height="38">
+      <span>SkillBridge</span>
+    </a>
+    <a class="back-link" href="index.html">← Back to Home</a>
+  </header>
+
+  <main class="auth-layout">
+    <section class="welcome-panel">
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+
+      <div class="welcome-content">
+        <span class="eyebrow">YOUR FUTURE STARTS HERE</span>
+        <h1>Talent meets<br> <span>opportunity.</span></h1>
+        <p>
+          Discover exciting careers, connect with employers
+          and take your next step with SkillBridge.
+        </p>
+
+        <div class="welcome-art">
+          <img src="assets/hero.svg"
+               alt="Professionals collaborating">
+        </div>
+
+        <div class="trust-note">
+          <span class="trust-icon">✓</span>
+          <span>One step closer to your next opportunity.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-panel">
+      <div class="auth-card">
+
+        <div class="mobile-brand">
+          <img src="assets/logo.svg" alt="" width="34" height="34">
+          <span>SkillBridge</span>
+        </div>
+
+        <div class="form-heading">
+          <span class="eyebrow">WELCOME TO SKILLBRIDGE</span>
+          <h2 id="formTitle">Welcome back!</h2>
+          <p id="formSubtitle">Sign in to continue your career journey.</p>
+        </div>
+
+        <div class="auth-tabs" role="tablist" aria-label="Account options">
+          <button type="button" class="tab active"
+                  id="loginTab" role="tab"
+                  aria-selected="true">
+            Login
+          </button>
+          <button type="button" class="tab"
+                  id="registerTab" role="tab"
+                  aria-selected="false">
+            Create Account
+          </button>
+        </div>
+
+        <div id="notice" class="notice" role="status"
+             aria-live="polite" hidden></div>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm" class="auth-form">
+          <label for="loginEmail">Email address</label>
+          <input type="email" id="loginEmail"
+                 placeholder="you@example.com"
+                 autocomplete="email" required>
+
+          <label for="loginPassword">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="loginPassword"
+                   placeholder="Enter your password"
+                   autocomplete="current-password"
+                   minlength="8" required>
+            <button type="button" class="password-toggle"
+                    data-target="loginPassword"
+                    aria-label="Show password">
+              Show
+            </button>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Sign In <span>↗</span>
+          </button>
+
+          <p class="switch-copy">
+            New to SkillBridge?
+            <button type="button" class="inline-link"
+                    data-switch="register">
+              Create an account
+            </button>
+          </p>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="registerForm" class="auth-form" hidden>
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName"
+                 placeholder="Enter your full name"
+                 autocomplete="name" maxlength="80" required>
+
+          <label for="registerEmail">Email address</label>
+          <input type="email" id="registerEmail"
+                 placeholder="you@example.com"
+                 autocomplete="email" required>
+
+          <label for="registerPassword">Create password</label>
+          <div class="password-wrap">
+            <input type="password" id="registerPassword"
+                   placeholder="At least 8 characters"
+                   autocomplete="new-password"
+                   minlength="8" required>
+            <button type="button" class="password-toggle"
+                    data-target="registerPassword"
+                    aria-label="Show password">
+              Show
+            </button>
+          </div>
+
+          <label for="confirmPassword">Confirm password</label>
+          <div class="password-wrap">
+            <input type="password" id="confirmPassword"
+                   placeholder="Enter password again"
+                   autocomplete="new-password"
+                   minlength="8" required>
+            <button type="button" class="password-toggle"
+                    data-target="confirmPassword"
+                    aria-label="Show password">
+              Show
+            </button>
+          </div>
+
+          <label class="terms">
+            <input type="checkbox" id="acceptTerms" required>
+            <span>I agree to use SkillBridge responsibly.</span>
+          </label>
+
+          <button type="submit" class="submit-btn">
+            Create Account <span>↗</span>
+          </button>
+
+          <p class="switch-copy">
+            Already have an account?
+            <button type="button" class="inline-link"
+                    data-switch="login">
+              Sign in
+            </button>
+          </p>
+        </form>
+
+        <div class="secure-note">
+          <span>✦</span> Your next career chapter starts here.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    © 2026 SkillBridge Job Portal · Connecting skills with opportunities.
+  </footer>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
