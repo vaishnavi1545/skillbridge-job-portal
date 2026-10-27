@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find local jobs and connect with employers on SkillBridge.">
+  <title>SkillBridge | Find Your Next Opportunity</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="/">SkillBridge<span>.</span></a>
+    <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">☰</button>
+    <nav id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#jobs">Find Jobs</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="#jobs">Explore Jobs</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">YOUR NEXT OPPORTUNITY STARTS HERE</span>
+        <h1>Local talent.<br><span>Real opportunities.</span></h1>
+        <p>Connect with local businesses, discover opportunities and build your career with SkillBridge.</p>
+        <a class="primary-btn" href="#jobs">Explore Jobs →</a>
+        <div class="hero-stats">
+          <div><strong>Local</strong><small>Job opportunities</small></div>
+          <div><strong>Simple</strong><small>Job discovery</small></div>
+          <div><strong>Skills</strong><small>First approach</small></div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=80" alt="Professionals working together">
+        <div class="image-note">Find work that fits your skills ✨</div>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <form id="searchForm" class="search-box">
+        <label>What are you looking for?
+          <input id="keyword" placeholder="Job title or skill">
+        </label>
+        <label>Location
+          <input id="location" placeholder="e.g. Nashik">
+        </label>
+        <button class="primary-btn" type="submit">Search Jobs</button>
+      </form>
+    </section>
+
+    <section id="jobs" class="section">
+      <div class="section-heading">
+        <div><span class="eyebrow">OPPORTUNITIES FOR YOU</span><h2>Featured jobs</h2></div>
+        <span id="jobCount" class="muted">Loading jobs...</span>
+      </div>
+      <div id="jobList" class="job-grid"></div>
+    </section>
+
+    <section id="about" class="about-section">
+      <span class="eyebrow">WHY SKILLBRIDGE?</span>
+      <h2>Your skills can open new doors.</h2>
+      <p>We help fresh graduates discover local work opportunities and help businesses connect with emerging talent.</p>
+      <div class="benefit-grid">
+        <article><span>01</span><h3>Discover</h3><p>Explore jobs that match your interests and skills.</p></article>
+        <article><span>02</span><h3>Connect</h3><p>Find opportunities with local employers.</p></article>
+        <article><span>03</span><h3>Grow</h3><p>Take the next step in your professional journey.</p></article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Ready to take the next step?</h2>
+      <p>Explore available opportunities and start planning your career.</p>
+      <a class="primary-btn" href="#jobs">Find a Job →</a>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="/">SkillBridge<span>.</span></a><p>Connecting skills with opportunities.</p><small>© 2026 SkillBridge Job Portal</small></footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
