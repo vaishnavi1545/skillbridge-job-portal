@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | SkillBridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background: #f6f8ff; color: #172344; }
+        .messages-hero {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #eef0ff, #e5fbf8);
+        }
+        .messages-hero h1 {
+            margin: 0 0 10px;
+            font-size: clamp(34px, 5vw, 48px);
+        }
+        .messages-hero p { color: #64748b; }
+        .chat-layout {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            max-width: 1050px;
+            min-height: 530px;
+            margin: 35px auto;
+            padding: 0 18px;
+            gap: 18px;
+        }
+        .chat-sidebar, .chat-panel {
+            background: white;
+            border: 1px solid #e1e7f3;
+            border-radius: 20px;
+            box-shadow: 0 12px 32px rgba(16, 25, 54, .07);
+            overflow: hidden;
+        }
+        .chat-sidebar h2, .chat-header {
+            margin: 0;
+            padding: 20px;
+            border-bottom: 1px solid #e8edf5;
+        }
+        .conversation {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            text-align: left;
+            background: white;
+            border: 0;
+            border-bottom: 1px solid #edf0f7;
+            cursor: pointer;
+            color: #172344;
+        }
+        .conversation.active, .conversation:hover {
+            background: #eef0ff;
+        }
+        .conversation strong { display: block; margin-bottom: 6px; }
+        .conversation span { color: #64748b; font-size: 13px; }
+        .chat-panel {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .chat-header strong { display: block; font-size: 18px; }
+        .chat-header span { color: #0c9b8f; font-size: 13px; }
+        .chat-body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 12px;
+            padding: 22px;
+            background: #fbfcff;
+        }
+        .message {
+            max-width: 82%;
+            padding: 13px 16px;
+            border-radius: 16px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+        .message.received {
+            align-self: flex-start;
+            background: #edf0fa;
+        }
+        .message.sent {
+            align-self: flex-end;
+            color: white;
+            background: linear-gradient(110deg, #5265ee, #8050df);
+        }
+        .message small {
+            display: block;
+            margin-top: 5px;
+            font-size: 10px;
+            opacity: .75;
+        }
+        .chat-compose {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            border-top: 1px solid #e8edf5;
+        }
+        .chat-compose input {
+            flex: 1;
+            min-width: 0;
+            padding: 13px;
+            border: 1px solid #dce2ec;
+            border-radius: 12px;
+            font: inherit;
+        }
+        .chat-compose button {
+            padding: 12px 18px;
+            border: 0;
+            border-radius: 12px;
+            background: linear-gradient(110deg, #5265ee, #8050df);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .demo-note {
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        @media (max-width: 650px) {
+            .chat-layout { grid-template-columns: 1fr; }
+            .chat-sidebar { max-height: 230px; overflow-y: auto; }
+            .chat-panel { min-height: 440px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="" width="38" height="38">
+        <span>SkillBridge</span>
+    </a>
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#jobs">Find Jobs</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login / Register</a>
+    </nav>
+</header>
+
+<main>
+    <section class="messages-hero">
+        <h1>Your Messages 💬</h1>
+        <p>Keep your career conversations organized.</p>
+    </section>
+
+    <section class="chat-layout">
+        <aside class="chat-sidebar">
+            <h2>Conversations</h2>
+            <button class="conversation active" type="button">
+                <strong>SkillBridge Support</strong>
+                <span>Welcome! How can we help?</span>
+            </button>
+            <button class="conversation" type="button">
+                <strong>Recruiter Demo</strong>
+                <span>Thanks for your interest.</span>
+            </button>
+        </aside>
+
+        <section class="chat-panel">
+            <header class="chat-header">
+                <strong id="chatTitle">SkillBridge Support</strong>
+                <span>Frontend demo conversation</span>
+            </header>
+
+            <div class="chat-body" id="chatBody" aria-live="polite">
+                <div class="message received">
+                    Welcome to SkillBridge! 👋
+                    <small>Demo message</small>
+                </div>
+                <div class="message received">
+                    You can try writing a message below.
+                    <small>Demo message</small>
+                </div>
+            </div>
+
+            <form class="chat-compose" id="chatForm">
+                <input id="chatInput" type="text" placeholder="Write a message..." aria-label="Write a message" required>
+                <button type="submit">Send ➤</button>
+            </form>
+        </section>
+    </section>
+
+    <p class="demo-note">
+        Demo only: messages are displayed in this browser session and are not
+        delivered to another person or saved to a shared inbox. A backend or
+        messaging service is required for real conversations.
+    </p>
+</main>
+
+<script>
+const chatBody = document.getElementById("chatBody");
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+
+chatForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const text = chatInput.value.trim();
+    if (!text) return;
+
+    const message = document.createElement("div");
+    message.className = "message sent";
+    message.appendChild(document.createTextNode(text));
+
+    const time = document.createElement("small");
+    time.textContent = "Just now";
+    message.appendChild(time);
+
+    chatBody.appendChild(message);
+    chatInput.value = "";
+    chatBody.scrollTop = chatBody.scrollHeight;
+});
+
+document.querySelectorAll(".conversation").forEach(button => {
+    button.addEventListener("click", function() {
+        document.querySelectorAll(".conversation").forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
+        document.getElementById("chatTitle").textContent =
+            this.querySelector("strong").textContent;
+
+        chatBody.replaceChildren();
+        const welcome = document.createElement("div");
+        welcome.className = "message received";
+        welcome.textContent = "This is a demo conversation. Write a message below to try the interface.";
+        chatBody.appendChild(welcome);
+    });
+});
+</script>
+
+<footer style="text-align:center;padding:25px;color:#64748b">
+    © 2026 SkillBridge. Connecting people, skills and opportunities.
+</footer>
+
+</body>
+</html>
