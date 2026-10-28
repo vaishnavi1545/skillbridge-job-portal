@@ -1381,3 +1381,119 @@ main h2 {
         font-size: 21px;
     }
 }
+
+/* ===== SkillBridge Premium Navbar Fix ===== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 14px 5%;
+    background: linear-gradient(110deg, #101936, #202b55);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 5px 22px rgba(16, 25, 54, 0.16);
+}
+
+/* Brand name */
+.navbar .brand span {
+    font-size: clamp(22px, 2.5vw, 29px);
+    font-weight: 800;
+    background: linear-gradient(100deg, #ffffff, #a8c7ff, #65e3d5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Navigation links */
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.navbar .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: #e8edff;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Explore Jobs button */
+.navbar .nav-links a.nav-cta {
+    padding: 11px 17px;
+    color: #ffffff;
+    background: linear-gradient(110deg, #5265ee, #8050df);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 5px 15px rgba(82, 101, 238, 0.25);
+}
+
+.navbar .nav-links a.nav-cta:hover {
+    background: linear-gradient(110deg, #6677ff, #9167ed);
+    transform: translateY(-1px);
+}
+
+/* Login / Register button */
+.navbar .nav-links a[href="login.html"] {
+    padding: 11px 17px;
+    color: #ffffff;
+    background: #087f8c;
+    border: 1px solid #35d5c5;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(8, 127, 140, 0.2);
+}
+
+.navbar .nav-links a[href="login.html"]:hover {
+    background: #0999a2;
+}
+
+/* Mobile navigation */
+@media (max-width: 700px) {
+    .navbar {
+        padding: 12px 16px;
+        gap: 8px;
+    }
+
+    .navbar .brand {
+        flex-shrink: 0;
+    }
+
+    .navbar .brand span {
+        font-size: 22px;
+        letter-spacing: -0.6px;
+    }
+
+    .navbar .nav-links {
+        gap: 5px;
+    }
+
+    .navbar .nav-links a {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .navbar .nav-links a.nav-cta,
+    .navbar .nav-links a[href="login.html"] {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+}
