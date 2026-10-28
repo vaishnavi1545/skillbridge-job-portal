@@ -291,3 +291,128 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("SkillBridge website initialized successfully.");
 
 });
+
+
+/* SkillBridge Frontend Job Search */
+(() => {
+    const searchInput = document.getElementById("jobSearchInput");
+    const locationInput = document.getElementById("jobLocationInput");
+    const searchButton = document.getElementById("jobSearchBtn");
+    const resultsContainer = document.getElementById("jobSearchResults");
+
+    if (!searchInput || !locationInput || !searchButton || !resultsContainer) {
+        return;
+    }
+
+    const jobs = [
+        {
+            title: "Java Developer",
+            company: "TechNova Solutions",
+            location: "Pune",
+            type: "Full-time",
+            salary: "₹3–6 LPA",
+            skills: "java spring boot sql software"
+        },
+        {
+            title: "PCB Design Engineer",
+            company: "CircuitWorks Technologies",
+            location: "Nashik",
+            type: "Full-time",
+            salary: "₹2.5–5 LPA",
+            skills: "pcb electronics altium eagle hardware"
+        },
+        {
+            title: "Embedded Systems Engineer",
+            company: "EmbeddedEdge",
+            location: "Pune",
+            type: "Full-time",
+            salary: "₹3–6 LPA",
+            skills: "embedded c microcontroller iot firmware electronics"
+        },
+        {
+            title: "Software Developer",
+            company: "BrightCode Labs",
+            location: "Mumbai",
+            type: "Full-time",
+            salary: "₹3–7 LPA",
+            skills: "javascript html css react software coding"
+        },
+        {
+            title: "Electronics Trainee Engineer",
+            company: "ElectroCore Industries",
+            location: "Nashik",
+            type: "Fresher",
+            salary: "₹1.8–3 LPA",
+            skills: "electronics entc testing fresher hardware"
+        },
+        {
+            title: "Frontend Developer",
+            company: "PixelCraft Digital",
+            location: "Remote",
+            type: "Full-time",
+            salary: "₹3–6 LPA",
+            skills: "html css javascript frontend web design"
+        }
+    ];
+
+    function showJobs() {
+        const query = searchInput.value.trim().toLowerCase();
+        const place = locationInput.value.trim().toLowerCase();
+
+        const matches = jobs.filter(job => {
+            const searchable = `${job.title} ${job.company} ${job.skills} ${job.type}`.toLowerCase();
+            const locationMatches = !place || job.location.toLowerCase().includes(place);
+            const queryMatches = !query || searchable.includes(query);
+
+            return queryMatches && locationMatches;
+        });
+
+        resultsContainer.replaceChildren();
+
+        const heading = document.createElement("h2");
+        heading.textContent = `${matches.length} job${matches.length === 1 ? "" : "s"} found`;
+        resultsContainer.appendChild(heading);
+
+        if (matches.length === 0) {
+            const message = document.createElement("p");
+            message.textContent = "No matching jobs found. Try another job title or location.";
+            resultsContainer.appendChild(message);
+            return;
+        }
+
+        matches.forEach(job => {
+            const card = document.createElement("article");
+            card.className = "job-card";
+
+            const title = document.createElement("h3");
+            title.textContent = job.title;
+
+            const company = document.createElement("p");
+            company.textContent = job.company;
+
+            const details = document.createElement("p");
+            details.textContent = `${job.location} · ${job.type} · ${job.salary}`;
+
+            const apply = document.createElement("a");
+            apply.className = "primary-btn";
+            apply.href = "login.html";
+            apply.textContent = "Apply Now";
+
+            card.append(title, company, details, apply);
+            resultsContainer.appendChild(card);
+        });
+
+        resultsContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    searchButton.addEventListener("click", showJobs);
+
+    searchInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") showJobs();
+    });
+
+    locationInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") showJobs();
+    });
+})();
+
