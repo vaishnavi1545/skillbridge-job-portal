@@ -1497,3 +1497,25 @@ main h2 {
         font-size: 11px;
     }
 }
+
+/* Messages icon button */
+.navbar .nav-links a.messages-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 13px;
+    transition: all 0.25s ease;
+}
+
+.navbar .nav-links a.messages-icon:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #5265ee, #8050df);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(82, 101, 238, 0.3);
+}
