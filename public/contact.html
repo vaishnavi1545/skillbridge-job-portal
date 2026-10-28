@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SkillBridge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background: #f7f8ff; }
+        .contact-hero {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #eef0ff, #e5fbf8);
+            border-radius: 0 0 30px 30px;
+        }
+        .contact-hero h1 {
+            color: #101936;
+            font-size: clamp(36px, 6vw, 56px);
+            margin-bottom: 14px;
+        }
+        .contact-hero h1 span {
+            background: linear-gradient(100deg, #4357e8, #7952d8, #159e9a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .contact-hero p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 28px;
+            max-width: 1050px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+        .contact-info, .contact-form {
+            padding: 28px;
+            background: white;
+            border: 1px solid #e5e7f3;
+            border-radius: 22px;
+            box-shadow: 0 12px 35px rgba(16, 25, 54, .07);
+        }
+        .contact-info {
+            background: #101936;
+            color: white;
+        }
+        .contact-info p { color: #d7def5; line-height: 1.8; }
+        .contact-info a { color: #75e4d7; }
+        .contact-form h2, .contact-info h2 { margin-top: 0; }
+        .contact-form label {
+            display: block;
+            margin: 15px 0 7px;
+            color: #26334d;
+            font-weight: 600;
+        }
+        .contact-form input, .contact-form textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce2ec;
+            border-radius: 10px;
+            background: #fafbff;
+            font: inherit;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: 2px solid #a5b4fc;
+            border-color: #5267e8;
+        }
+        .contact-form button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 14px;
+            border: 0;
+            border-radius: 11px;
+            color: white;
+            background: linear-gradient(110deg, #5265ee, #8050df);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        #contactStatus { color: #087f8c; line-height: 1.6; }
+        @media (max-width: 700px) {
+            .contact-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="" width="38" height="38">
+        <span>SkillBridge</span>
+    </a>
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#jobs">Find Jobs</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login / Register</a>
+    </nav>
+</header>
+
+<main>
+    <section class="contact-hero">
+        <h1>Let's <span>Connect</span></h1>
+        <p>Have a question or suggestion? We'd love to hear from you.</p>
+    </section>
+
+    <section class="contact-layout">
+        <aside class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>Contact SkillBridge for questions about the platform or suggestions for improvement.</p>
+            <p>✉️ Email<br><a href="mailto:hello@skillbridge.example">hello@skillbridge.example</a></p>
+            <p>🌐 Website<br>SkillBridge Job Portal</p>
+            <p>🕒 Availability<br>Anytime through this contact form</p>
+        </aside>
+
+        <form class="contact-form" id="contactForm">
+            <h2>Send Us a Message</h2>
+
+            <label for="contactName">Your Name</label>
+            <input id="contactName" name="name" type="text" placeholder="Enter your name" required>
+
+            <label for="contactEmail">Email Address</label>
+            <input id="contactEmail" name="email" type="email" placeholder="Enter your email" required>
+
+            <label for="contactSubject">Subject</label>
+            <input id="contactSubject" name="subject" type="text" placeholder="How can we help?" required>
+
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+            <button type="submit">Prepare Message →</button>
+            <p id="contactStatus" aria-live="polite"></p>
+        </form>
+    </section>
+</main>
+
+<footer style="text-align:center;padding:25px;color:#64748b">
+    © 2026 SkillBridge. Connecting people, skills and opportunities.
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("contactName").value.trim();
+    const email = document.getElementById("contactEmail").value.trim();
+    const subject = document.getElementById("contactSubject").value.trim();
+    const message = document.getElementById("contactMessage").value.trim();
+
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    const mailto = `mailto:hello@skillbridge.example?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    document.getElementById("contactStatus").textContent =
+        "Your email app will open so you can review and send the message. Replace the example email address with a real contact address before publishing.";
+
+    window.location.href = mailto;
+});
+</script>
+
+</body>
+</html>
