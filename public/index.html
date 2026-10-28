@@ -58,6 +58,33 @@
           Discover meaningful opportunities, connect with local employers
           and build the skills you need to grow your career.
         </p>
+        
+<div class="job-search-box">
+    <div class="search-field">
+        <label for="jobSearchInput">What job are you looking for?</label>
+        <input
+            type="search"
+            id="jobSearchInput"
+            placeholder="e.g. Java Developer, PCB Designer"
+        >
+    </div>
+
+    <div class="search-field">
+        <label for="jobLocationInput">Location</label>
+        <input
+            type="text"
+            id="jobLocationInput"
+            placeholder="e.g. Nashik, Pune"
+        >
+    </div>
+
+    <button type="button" id="jobSearchBtn" class="primary-btn">
+        Search Jobs
+    </button>
+</div>
+
+<div id="jobSearchResults" aria-live="polite"></div>
+        
 
         <div class="hero-actions">
           <a href="#jobs" class="primary-btn">Explore Jobs ↗</a>
